@@ -17,16 +17,21 @@ function addProfessor(professor: Professor): OperationResult<Professor> {
 function addLesson(lesson: Lesson): OperationResult<Lesson> {
     // Check for conflicts
     const conflictExists = schedule.some(existingLesson => {
-        return existingLesson.dayOfWeek === lesson.dayOfWeek && existingLesson.timeSlot === lesson.timeSlot &&
+        return existingLesson.dayOfWeek === lesson.dayOfWeek && 
+               existingLesson.timeSlot === lesson.timeSlot &&
                (existingLesson.classroomNumber === lesson.classroomNumber || existingLesson.professorId === lesson.professorId);
     });
 
+    // If a conflict exists, do not add the lesson to the schedule
     if (conflictExists) {
-        schedule.push(lesson); 
         return { success: false, message: "Lesson conflicts with existing schedule." };
     }
+
+    // No conflict, add the lesson to the schedule
     schedule.push(lesson);
     return { success: true, message: "Lesson added successfully.", data: lesson };
 }
+
+
 
 export { professors, classrooms, courses, schedule, addProfessor, addLesson };
