@@ -1,6 +1,6 @@
 import Lesson from '../models/Lesson'
 
-type ScheduleConflict = {
+export type ScheduleConflict = {
     type: "ProfessorConflict" | "ClassroomConflict";
     lessonDetails: Lesson;
 };
