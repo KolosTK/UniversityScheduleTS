@@ -1,5 +1,5 @@
 type Lesson={
-    courseId: number;
+    courseType: CourseType;
     professorId: number;
     classroomNumber: string;
     dayOfWeek: DayOfWeek;

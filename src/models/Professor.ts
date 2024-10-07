@@ -1,7 +1,7 @@
 type Professor = {
     id: number;
     name: string;
-    department: string;
+    department?: string;
 };
 
 export default Professor; 
